@@ -24,7 +24,7 @@ local options = {
                 "AutoPreferDouble",
             },
         },
-        ruff_format = { prepend_args = { "--line-length=80" } },
+        ruff_format = {},
         prettierd = { prepend_args = { "--tab-width", "2" } }, -- default for HTML/CSS/JS
         djlint = {}, -- default settings
         ["clang-format"] = {
