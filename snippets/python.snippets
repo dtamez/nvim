@@ -1,0 +1,16 @@
+snippet #!
+	#!/usr/bin/env python3
+    
+snippet deco create a simple decorator
+    def ${1}(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            func(*args, **kwargs)
+        return wrapper
+
+snippet decor create a simple decorator that returns a result
+    def ${1}(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            return func(*args, **kwargs)
+        return wrapper
