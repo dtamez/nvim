@@ -5,25 +5,50 @@ local o = vim.o
 
 o.termguicolors = true
 
--- Base indentation (applies to all buffers by default)
+-- Base indentation (can be overridden per filetype)
+o.expandtab = true
 o.shiftwidth = 4
 o.tabstop = 4
 o.softtabstop = 4
-o.expandtab = true
 
--- Per-filetype indentation (defaults, before HTML/Django changes)
+-- Per-filetype indentation
 local ft_indents = {
+    -- Python
     python = { shiftwidth = 4, tabstop = 4, softtabstop = 4, expandtab = true },
+
+    -- Lua
     lua = { shiftwidth = 4, tabstop = 4, softtabstop = 4, expandtab = true },
-    html = { shiftwidth = 4, tabstop = 4, softtabstop = 4, expandtab = true },
+
+    -- HTML / Django templates
+    html = { shiftwidth = 2, tabstop = 2, softtabstop = 2, expandtab = true },
     htmldjango = {
-        shiftwidth = 4,
-        tabstop = 4,
-        softtabstop = 4,
+        shiftwidth = 2,
+        tabstop = 2,
+        softtabstop = 2,
         expandtab = true,
     },
-    css = { shiftwidth = 4, tabstop = 4, softtabstop = 4, expandtab = true },
+
+    -- CSS / JavaScript
+    css = { shiftwidth = 2, tabstop = 2, softtabstop = 2, expandtab = true },
     javascript = {
+        shiftwidth = 2,
+        tabstop = 2,
+        softtabstop = 2,
+        expandtab = true,
+    },
+
+    -- Go
+    go = { shiftwidth = 4, tabstop = 4, softtabstop = 4, expandtab = true },
+
+    -- C / C++
+    c = { shiftwidth = 4, tabstop = 4, softtabstop = 4, expandtab = true },
+    cpp = { shiftwidth = 4, tabstop = 4, softtabstop = 4, expandtab = true },
+
+    -- Rust
+    rust = { shiftwidth = 4, tabstop = 4, softtabstop = 4, expandtab = true },
+
+    -- Terraform
+    terraform = {
         shiftwidth = 4,
         tabstop = 4,
         softtabstop = 4,

@@ -7,7 +7,7 @@ require("mason-conform").setup {
         "ruff",
 
         -- Web
-        "prettierd",
+        "prettier",
 
         -- Terraform
         "terraform_fmt",

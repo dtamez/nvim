@@ -34,7 +34,7 @@ return {
     -- Formatters
     {
         "stevearc/conform.nvim",
-        event = "BufWritePre",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
             require "configs.conform"
         end,
