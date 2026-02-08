@@ -6,6 +6,8 @@ if not (dap_ok and dapui_ok) then
     return
 end
 
+dap.set_log_level "TRACE"
+
 ------------------------------------------------------------
 -- DAP UI setup
 ------------------------------------------------------------
@@ -109,6 +111,9 @@ end
 dap.listeners.before.event_exited[listeners_id] = function()
     dapui.close()
 end
+dap.listeners.after.event_initialized[listeners_id] = function()
+    dapui.open()
+end
 
 ------------------------------------------------------------
 -- Language-specific adapters
@@ -135,8 +140,7 @@ dap.adapters.codelldb = {
     type = "server",
     port = "${port}",
     executable = {
-        command = vim.fn.stdpath "data"
-            .. "/mason/packages/codelldb/extension/adapter/codelldb",
+        command = vim.fn.stdpath "data" .. "/mason/bin/codelldb",
         args = { "--port", "${port}" },
     },
 }
