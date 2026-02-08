@@ -55,6 +55,42 @@ vim.keymap.set(
     dapui.eval,
     vim.tbl_extend("force", { desc = "DAP: Evaluate" }, map_opts)
 )
+vim.keymap.set(
+    "n",
+    "<leader>dr",
+    dap.repl.open,
+    vim.tbl_extend("force", { desc = "DAP: REPL open" }, map_opts)
+)
+vim.keymap.set(
+    "n",
+    "<F5>",
+    dap.continue,
+    vim.tbl_extend("force", { desc = "DAP: Start or Continue" }, map_opts)
+)
+vim.keymap.set(
+    "n",
+    "<F6>",
+    dap.step_over,
+    vim.tbl_extend("force", { desc = "DAP: Step over Line" }, map_opts)
+)
+vim.keymap.set(
+    "n",
+    "<F7>",
+    dap.step_into,
+    vim.tbl_extend("force", { desc = "DAP: Step into Line" }, map_opts)
+)
+vim.keymap.set(
+    "n",
+    "<F8>",
+    dap.step_out,
+    vim.tbl_extend("force", { desc = "DAP: Step out of Line" }, map_opts)
+)
+-- vim.keymap.set(
+--     "n",
+--     "<leader>dq",
+--     dap.Quit,
+--     vim.tbl_extend("force", { desc = "DAP: Quit" }, map_opts)
+-- )
 
 ------------------------------------------------------------
 -- Auto-open / close DAP UI
@@ -79,6 +115,14 @@ end
 ------------------------------------------------------------
 
 -- Python: debugpy via Mason
+local mason_path = vim.fn.stdpath "data"
+    .. "/mason/packages/debugpy/venv/bin/python"
+
+require("dap-python").setup(mason_path)
+
+-- Optional but useful:
+require("dap-python").test_runner = "pytest"
+
 dap.adapters.python = {
     type = "executable",
     command = vim.fn.stdpath "data"
