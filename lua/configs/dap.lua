@@ -136,6 +136,7 @@ dap.adapters.python = {
 }
 
 -- Rust & C++: codelldb
+-- Adapter
 dap.adapters.codelldb = {
     type = "server",
     port = "${port}",
@@ -145,23 +146,75 @@ dap.adapters.codelldb = {
     },
 }
 
+-- Rust dap helpers
+-- Binary discovery
+local function discover_binaries()
+    local cwd = vim.fn.getcwd()
+    local targets = {}
+
+    local function scan(dir)
+        local paths = vim.fn.glob(dir .. "/*", false, true)
+        for _, p in ipairs(paths) do
+            if vim.fn.isdirectory(p) == 1 then
+                scan(p)
+            else
+                if vim.fn.executable(p) == 1 and not p:match "%.dSYM" then
+                    table.insert(targets, p)
+                end
+            end
+        end
+    end
+
+    scan(cwd .. "/target/debug")
+
+    return targets
+end
+
+local function pick_binary()
+    -- build first
+    vim.fn.system "cargo build"
+
+    local bins = discover_binaries()
+
+    if #bins == 0 then
+        vim.notify(
+            "No debug binaries found. Did cargo build succeed?",
+            vim.log.levels.ERROR
+        )
+        return nil
+    end
+
+    if #bins == 1 then
+        return bins[1]
+    end
+
+    local choices = { "Select Rust binary:" }
+    for i, bin in ipairs(bins) do
+        table.insert(choices, string.format("%d: %s", i, bin))
+    end
+
+    local idx = vim.fn.inputlist(choices)
+
+    if idx < 1 or idx > #bins then
+        return nil
+    end
+
+    return bins[idx]
+end
+
+-- Config
 dap.configurations.rust = {
     {
-        name = "Debug executable",
+        name = "Rust Debug (Auto)",
         type = "codelldb",
         request = "launch",
-        program = function()
-            return vim.fn.input(
-                "Path to executable: ",
-                vim.fn.getcwd() .. "/target/debug/",
-                "file"
-            )
-        end,
+        program = pick_binary,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
     },
 }
 
+-- CPP configuration
 dap.configurations.cpp = {
     {
         name = "Debug executable",
