@@ -5,8 +5,15 @@ vim.g.mapleader = " "
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
 if not vim.uv.fs_stat(lazypath) then
-  local repo = "https://github.com/folke/lazy.nvim.git"
-  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+    local repo = "https://github.com/folke/lazy.nvim.git"
+    vim.fn.system {
+        "git",
+        "clone",
+        "--filter=blob:none",
+        repo,
+        "--branch=stable",
+        lazypath,
+    }
 end
 
 vim.opt.rtp:prepend(lazypath)
@@ -14,16 +21,25 @@ vim.opt.rtp:prepend(lazypath)
 -- local lazy_config = require "configs.lazy"
 
 -- load plugins
-require("lazy").setup({
-  {
-    "NvChad/NvChad",
-    lazy = false,
-    branch = "v2.5",
-    import = "nvchad.plugins",
-  },
+require("lazy").setup {
+    {
+        "NvChad/NvChad",
+        lazy = false,
+        branch = "v2.5",
+        import = "nvchad.plugins",
+        config = function()
+            require "options"
+            -- Override nvim-tree settings
+            local nvim_tree_options = require "nvchad.configs.nvimtree"
+            nvim_tree_options.filters.dotfiles = false
+            nvim_tree_options.filters.git_ignored = false
+            nvim_tree_options.filters.custom =
+                { "^\\.git$", "DS_Store", ".venv" }
+        end,
+    },
 
-  { import = "plugins" },
-}, lazy_config)
+    { import = "plugins" },
+}
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
@@ -34,6 +50,5 @@ require "custom"
 require "autocmds"
 
 vim.schedule(function()
-  require "mappings"
+    require "mappings"
 end)
-
