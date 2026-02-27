@@ -10,7 +10,7 @@ local options = {
         htmldjango = { "djlint" },
 
         -- Python
-        python = { "ruff_format" },
+        python = { "ruff_fix", "ruff_format" },
 
         -- Lua
         lua = { "stylua" },
@@ -44,8 +44,17 @@ local options = {
         },
 
         -- Python
-        ruff_format = {},
+        ruff_fix = {
+            command = "ruff",
+            args = { "check", "--fix", "--select", "I", "$FILENAME" },
+            stdin = false, -- IMPORTANT
+        },
 
+        ruff_format = {
+            command = "ruff",
+            args = { "format", "-" },
+            stdin = true,
+        },
         -- Lua
         stylua = {
             prepend_args = {

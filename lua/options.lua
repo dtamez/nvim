@@ -5,6 +5,9 @@ local o = vim.o
 
 o.termguicolors = true
 
+-- mouse
+o.mouse = ""
+
 -- Base indentation (can be overridden per filetype)
 o.expandtab = true
 o.shiftwidth = 4
@@ -26,6 +29,7 @@ local ft_indents = {
         tabstop = 2,
         softtabstop = 2,
         expandtab = true,
+        -- foldmethod = "syntax",
     },
 
     -- CSS / JavaScript

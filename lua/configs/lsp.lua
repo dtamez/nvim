@@ -27,6 +27,9 @@ vim.lsp.config("html", {
     end,
 })
 
+-- Tailwindcss
+require "configs.tailwind"
+
 -- Enable servers
 vim.lsp.enable {
     "lua_ls",
@@ -38,4 +41,5 @@ vim.lsp.enable {
     "rust_analyzer",
     "clangd",
     "gopls",
+    "tailwindcss",
 }
