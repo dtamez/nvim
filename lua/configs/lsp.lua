@@ -30,6 +30,9 @@ vim.lsp.config("html", {
 -- Tailwindcss
 require "configs.tailwind"
 
+-- SQL
+vim.lsp.config("sqls", { capabilities = capabilities })
+
 -- Enable servers
 vim.lsp.enable {
     "lua_ls",
@@ -42,4 +45,5 @@ vim.lsp.enable {
     "clangd",
     "gopls",
     "tailwindcss",
+    "sqls",
 }

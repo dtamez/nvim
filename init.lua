@@ -41,6 +41,13 @@ require("lazy").setup {
     { import = "plugins" },
 }
 
+-- db configuration
+vim.g.dbs = {
+    dev_pg = "postgres://user:pass@localhost:5432/mydb",
+    local_sqlite = "sqlite:" .. vim.fn.expand "~/db.sqlite3",
+    -- dev_mysql = "mysql://user:pass@localhost:3306/mydb",
+}
+
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")

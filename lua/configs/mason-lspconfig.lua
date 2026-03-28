@@ -10,6 +10,7 @@ require("mason-lspconfig").setup {
         "clangd",
         "gopls",
         "tailwindcss-language-server",
+        "sqls",
     },
     automatic_installation = false,
 }
