@@ -14,6 +14,40 @@ return {
         config = true,
     },
 
+    -- Completion (toggle between blink and nvim.cmp)
+    {
+        "saghen/blink.cmp",
+        cond = function()
+            return vim.g.use_blink
+        end,
+        dependencies = { "rafamadriz/friendly-snippets" },
+        opts = function()
+            return require "configs.blink"
+        end,
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        cond = function()
+            return not vim.g.use_blink
+        end,
+        dependencies = {
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-nvim-lsp",
+            "rafamadriz/friendly-snippets",
+        },
+        config = function()
+            require "configs.cmp" -- your existing config
+        end,
+    },
+    -- autopairs (for blink)
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require "configs.autopairs"
+        end,
+    },
     -- Linters
     {
         "mfussenegger/nvim-lint",
