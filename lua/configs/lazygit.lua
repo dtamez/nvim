@@ -14,6 +14,3 @@ vim.g.lazygit_floating_window_corner_chars = { "╭", "╮", "╰", "╯" }
 -- Optional: border style
 vim.g.lazygit_floating_window_border_chars =
     { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
-
--- Keymap (recommended)
-vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
