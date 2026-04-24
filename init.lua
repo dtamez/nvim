@@ -41,6 +41,8 @@ require("lazy").setup {
                 ".venv",
                 "__pycache__",
                 ".ruff_cache",
+                ".pytest_cache",
+                ".python-version",
             }
         end,
     },
