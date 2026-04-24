@@ -183,7 +183,7 @@ return {
             "nvim-lua/plenary.nvim",
         },
         config = function()
-            require "configs.lazygit."
+            require "configs.lazygit"
         end,
     },
 }
