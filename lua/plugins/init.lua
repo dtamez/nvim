@@ -163,4 +163,24 @@ return {
             require "configs.markdown-tables"
         end,
     },
+
+    -- Lazygit
+    {
+        "kdheepak/lazygit.nvim",
+        -- lazy = true,
+        cmd = {
+            "LazyGit",
+            "LazyGitConfig",
+            "LazyGitCurrentFile",
+            "LazyGitFilter",
+            "LazyGitFilterCurrentFile",
+        },
+        -- optional for floating window border decoration
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            require "configs.lazygit."
+        end,
+    },
 }
