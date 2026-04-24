@@ -33,8 +33,13 @@ require("lazy").setup {
             local nvim_tree_options = require "nvchad.configs.nvimtree"
             nvim_tree_options.filters.dotfiles = false
             nvim_tree_options.filters.git_ignored = false
-            nvim_tree_options.filters.custom =
-                { "^\\.git$", "DS_Store", ".venv" }
+            nvim_tree_options.filters.custom = {
+                "^\\.git$",
+                "DS_Store",
+                ".venv",
+                "__pycache__",
+                ".ruff_cache",
+            }
         end,
     },
 
