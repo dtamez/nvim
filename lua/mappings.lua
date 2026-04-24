@@ -22,5 +22,17 @@ map("n", "<leader>w", "<cmd> wa <cr>")
 map("n", "<leader>K", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
 map("n", "<leader>k", function()
-    vim.cmd("WhichKey " .. vim.fn.input("WhichKey: "))
+    vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
 end, { desc = "whichkey query lookup" })
+
+map("n", "zR", function()
+    require("ufo").openAllFolds()
+end, { desc = "Open all folds" })
+
+map("n", "zM", function()
+    require("ufo").closeAllFolds()
+end, { desc = "Close all folds" })
+
+map("n", "zr", function()
+    require("ufo").openFoldsExceptKinds()
+end, { desc = "Open folds except kinds" })

@@ -146,4 +146,21 @@ return {
         dependencies = { "tpope/vim-dadbod" },
         ft = { "sql", "mysql", "plsql" },
     },
+    -- Folding
+    {
+        "kevinhwang91/nvim-ufo",
+        dependencies = { "kevinhwang91/promise-async" },
+        event = "BufReadPost",
+        config = function()
+            require "configs.folding"
+        end,
+    },
+
+    -- Tables in markdown
+    {
+        "Kicamon/markdown-table-mode.nvim",
+        config = function()
+            require "configs.markdown-tables"
+        end,
+    },
 }
