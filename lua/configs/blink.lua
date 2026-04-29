@@ -1,7 +1,7 @@
 return {
     -- minimal, sane defaults
     keymap = {
-        preset = "default", -- "super-tab", "enter"
+        preset = "super-tab", -- "default", super-tab", "enter"
     },
 
     appearance = {
@@ -18,7 +18,7 @@ return {
         providers = {
             lsp = { min_keyword_length = 2 },
             snippets = { min_keyword_length = 2 },
-            buffer = { min_keyword_length = 5 },
+            buffer = { min_keyword_length = 2 },
         },
     },
 }
