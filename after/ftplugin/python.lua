@@ -1,3 +1,6 @@
+-- Override autopairs <CR> in Python because nvim-autopairs +
+-- Python indentation produces incorrect indentation when expanding pairs.
+
 local pairs = {
     ["("] = ")",
     ["["] = "]",
