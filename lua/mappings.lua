@@ -36,3 +36,10 @@ end, { desc = "Close all folds" })
 map("n", "zr", function()
     require("ufo").openFoldsExceptKinds()
 end, { desc = "Open folds except kinds" })
+
+-- apply command actions
+vim.keymap.set("n", "<leader>ca", function()
+    vim.lsp.buf.code_action {
+        apply = true,
+    }
+end)
