@@ -43,3 +43,11 @@ vim.keymap.set("n", "<leader>ca", function()
         apply = true,
     }
 end)
+
+-- find hidden files in telescope with this key sequence
+vim.keymap.set("n", "<leader>fa", function()
+    require("telescope.builtin").find_files {
+        hidden = true,
+        no_ignore = true,
+    }
+end)
