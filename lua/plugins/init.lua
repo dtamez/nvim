@@ -220,4 +220,39 @@ return {
             require "configs.lazygit"
         end,
     },
+    -- Auto-session
+    {
+        "rmagatti/auto-session",
+        lazy = false,
+        opts = {
+            auto_restore = true,
+            auto_save = true,
+            auto_create = true,
+
+            pre_save_cmds = {
+                function()
+                    pcall(vim.cmd, "NvimTreeClose")
+                end,
+            },
+            post_restore_cmds = {
+                function()
+                    vim.defer_fn(function()
+                        vim.cmd "filetype detect"
+
+                        pcall(function()
+                            require("nvim-tree.api").tree.open()
+                        end)
+
+                        vim.cmd "redraw!"
+                    end, 100)
+                end,
+            },
+
+            suppressed_dirs = {
+                "~/",
+                "~/Downloads",
+                "/",
+            },
+        },
+    },
 }

@@ -51,3 +51,18 @@ vim.keymap.set("n", "<leader>fa", function()
         no_ignore = true,
     }
 end)
+
+-- auto-session
+map("n", "<leader>ss", "<cmd>AutoSession save<CR>", { desc = "Save session" })
+map(
+    "n",
+    "<leader>sr",
+    "<cmd>AutoSession restore<CR>",
+    { desc = "Restore session" }
+)
+map(
+    "n",
+    "<leader>sd",
+    "<cmd>AutoSession delete<CR>",
+    { desc = "Delete session" }
+)
