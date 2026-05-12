@@ -40,6 +40,11 @@ require "configs.tailwind"
 -- SQL
 vim.lsp.config("sqls", { capabilities = capabilities })
 
+-- Java
+vim.lsp.config("jdtls", {
+    capabilities = capabilities,
+})
+
 vim.lsp.enable {
     "lua_ls",
     "ruff",
@@ -52,4 +57,5 @@ vim.lsp.enable {
     "gopls",
     "tailwindcss",
     "sqls",
+    "jdtls",
 }
