@@ -14,6 +14,10 @@ o.shiftwidth = 4
 o.tabstop = 4
 o.softtabstop = 4
 
+-- auto-session
+o.sessionoptions =
+    "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- Per-filetype indentation
 local ft_indents = {
     -- Python
