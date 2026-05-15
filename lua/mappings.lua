@@ -66,3 +66,6 @@ map(
     "<cmd>AutoSession delete<CR>",
     { desc = "Delete session" }
 )
+
+-- twilight
+map("n", "<leader>a", "<cmd>Twilight<CR>", { desc = "Toggle twilight" })
