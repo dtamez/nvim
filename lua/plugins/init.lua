@@ -192,10 +192,9 @@ return {
 
     -- Tables in markdown
     {
-        "Kicamon/markdown-table-mode.nvim",
-        config = function()
-            require "configs.markdown-tables"
-        end,
+        "SCJangra/table-nvim",
+        ft = "markdown",
+        opts = {},
     },
 
     -- Lazygit
