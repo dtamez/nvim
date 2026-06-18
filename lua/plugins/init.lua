@@ -194,7 +194,7 @@ return {
     {
         "SCJangra/table-nvim",
         ft = "markdown",
-        opts = {},
+        opts = require "configs.table",
     },
 
     -- Lazygit
