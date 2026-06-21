@@ -22,8 +22,8 @@ local options = {
         go = { "gofumpt", "goimports-reviser", "golines" },
 
         -- C / C++
-        c = { "clang-format" },
-        cpp = { "clang-format" },
+        c = { "clang_format" },
+        cpp = { "clang_format" },
 
         -- Terraform
         terraform = { "terraform_fmt" },
@@ -75,7 +75,7 @@ local options = {
 
         -- C / C++
         ["clang-format"] = {
-            prepend_args = { "-style={IndentWidth:4,TabWidth:4,UseTab:Never}" },
+            prepend_args = { "-style=file" },
         },
 
         -- Other Go formatters
