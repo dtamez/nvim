@@ -87,13 +87,14 @@ vim.keymap.set(
     dap.step_out,
     vim.tbl_extend("force", { desc = "DAP: Step out of Line" }, map_opts)
 )
+-- TODO: Figure out why this is broken
 -- vim.keymap.set(
 --     "n",
 --     "<leader>dq",
 --     dap.Quit,
 --     vim.tbl_extend("force", { desc = "DAP: Quit" }, map_opts)
 -- )
-
+--
 ------------------------------------------------------------
 -- Auto-open / close DAP UI
 ------------------------------------------------------------
@@ -217,18 +218,29 @@ dap.configurations.rust = {
 -- CPP configuration
 dap.configurations.cpp = {
     {
-        name = "Debug executable",
+        name = "Debug Tests",
         type = "codelldb",
         request = "launch",
-        program = function()
-            return vim.fn.input(
-                "Path to executable: ",
-                vim.fn.getcwd() .. "/build/",
-                "file"
-            )
-        end,
+        program = "${workspaceFolder}/build/desktop/tests",
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
+    },
+    {
+        name = "Debug App",
+        type = "codelldb",
+        request = "launch",
+        program = "${workspaceFolder}/build/desktop/padrenaline",
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+    },
+    {
+        name = "Debug Single Looper Test - Stop at Main",
+        type = "codelldb",
+        request = "launch",
+        program = "${workspaceFolder}/build/desktop/tests",
+        cwd = "${workspaceFolder}",
+        args = { "--test-case=looper plays recorded samples and wraps" },
+        stopOnEntry = true,
     },
 }
 

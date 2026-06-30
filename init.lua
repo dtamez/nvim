@@ -43,6 +43,7 @@ require("lazy").setup {
                 ".ruff_cache",
                 ".pytest_cache",
                 ".python-version",
+                ".cache",
             }
         end,
     },
