@@ -16,7 +16,7 @@ return {
     sources = {
         default = { "lsp", "path", "snippets", "buffer" },
         providers = {
-            lsp = { min_keyword_length = 2 },
+            lsp = { min_keyword_length = 0 },
             snippets = { min_keyword_length = 2 },
             buffer = { min_keyword_length = 2 },
         },

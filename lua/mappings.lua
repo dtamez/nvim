@@ -67,5 +67,13 @@ map(
     { desc = "Delete session" }
 )
 
+-- clang
+map(
+    "n",
+    "<leader>ts",
+    "<cmd>LspClangdSwitchSourceHeader<CR>",
+    { desc = "Switch Source/Header (C/C++)" }
+)
+
 -- twilight
 map("n", "<leader>a", "<cmd>Twilight<CR>", { desc = "Toggle twilight" })
