@@ -8,6 +8,8 @@ local options = {
         css = { "prettier" },
         javascript = { "prettier" },
         htmldjango = { "djlint" },
+        json = { "prettierd" },
+        jsonc = { "prettierd" },
 
         -- Python
         python = { "ruff_fix", "ruff_format" },

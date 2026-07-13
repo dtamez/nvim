@@ -45,6 +45,23 @@ vim.lsp.config("jdtls", {
     capabilities = capabilities,
 })
 
+-- json
+vim.lsp.config("jsonls", {
+    settings = {
+        json = {
+            validate = {
+                enable = true,
+            },
+            format = {
+                enable = false,
+            },
+            schemas = require("schemastore").json.schemas(),
+        },
+    },
+})
+
+vim.lsp.enable "jsonls"
+
 vim.lsp.enable {
     "lua_ls",
     "ruff",

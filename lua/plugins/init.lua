@@ -259,4 +259,16 @@ return {
         "folke/twilight.nvim",
         opts = {},
     },
+    -- json
+    {
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "b0o/schemastore.nvim",
+        },
+        config = function()
+            require("nvchad.configs.lspconfig").defaults()
+            require "configs.lsp"
+        end,
+    },
 }
