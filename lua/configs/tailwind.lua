@@ -7,6 +7,7 @@ vim.lsp.config("tailwindcss", {
         "javascriptreact",
         "typescript",
         "typescriptreact",
+        "htmlangular",
         "htmldjango",
         "django-html",
         "templ",

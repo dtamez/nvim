@@ -44,6 +44,30 @@ local ft_indents = {
         softtabstop = 2,
         expandtab = true,
     },
+    javascriptreact = {
+        shiftwidth = 2,
+        tabstop = 2,
+        softtabstop = 2,
+        expandtab = true,
+    },
+    typescript = {
+        shiftwidth = 2,
+        tabstop = 2,
+        softtabstop = 2,
+        expandtab = true,
+    },
+    typescriptreact = {
+        shiftwidth = 2,
+        tabstop = 2,
+        softtabstop = 2,
+        expandtab = true,
+    },
+    htmlangular = {
+        shiftwidth = 2,
+        tabstop = 2,
+        softtabstop = 2,
+        expandtab = true,
+    },
 
     -- Go
     go = { shiftwidth = 4, tabstop = 4, softtabstop = 4, expandtab = true },

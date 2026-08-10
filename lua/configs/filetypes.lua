@@ -3,6 +3,12 @@ vim.filetype.add {
         htmldjango = "htmldjango",
     },
     pattern = {
-        [".*%.html"] = "htmldjango",
+        [".*%.html"] = function(_, bufnr)
+            if vim.fs.root(bufnr, { "angular.json", "nx.json" }) then
+                return "htmlangular"
+            end
+
+            return "htmldjango"
+        end,
     },
 }

@@ -34,6 +34,18 @@ vim.lsp.config("html", {
     end,
 })
 
+-- TypeScript / JavaScript
+-- vtsls replaces ts_ls; enabling both would produce duplicate diagnostics.
+vim.lsp.config("vtsls", { capabilities = capabilities })
+
+-- Angular templates and Angular-specific TypeScript features. The stock
+-- angularls config locates the project's Angular and TypeScript packages.
+vim.lsp.config("angularls", { capabilities = capabilities })
+
+-- Only starts in projects with an ESLint configuration, so projects that do
+-- not use ESLint remain unaffected.
+vim.lsp.config("eslint", { capabilities = capabilities })
+
 -- Tailwindcss
 require "configs.tailwind"
 
@@ -67,6 +79,9 @@ vim.lsp.enable {
     "ruff",
     "ty",
     "html",
+    "vtsls",
+    "angularls",
+    "eslint",
     "cssls",
     "terraformls",
     "rust_analyzer",

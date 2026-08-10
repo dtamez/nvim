@@ -11,7 +11,9 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         cmd = "Mason",
-        config = true,
+        config = function()
+            require "configs.mason-lspconfig"
+        end,
     },
 
     -- Completion (toggle between blink and nvim.cmp)
@@ -100,6 +102,9 @@ return {
                 "htmldjango",
                 "java",
                 "javascript",
+                "typescript",
+                "tsx",
+                "angular",
                 "jinja",
                 "json",
                 "lua",
