@@ -52,6 +52,10 @@ vim.keymap.set("n", "<leader>fa", function()
     }
 end)
 
+-- shortcut to navigate quickfix results
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>", { desc = "Next quickfix" })
+vim.keymap.set("n", "[q", "<cmd>cprev<CR>", { desc = "Previous quickfix" })
+
 -- auto-session
 map("n", "<leader>ss", "<cmd>AutoSession save<CR>", { desc = "Save session" })
 map(

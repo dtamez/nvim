@@ -6,6 +6,7 @@ lint.linters_by_ft = {
     python = { "ruff" },
     htmldjango = { "djlint" },
     terraform = { "tflint" },
+    yaml = { "yamllint" },
 }
 
 lint.linters.luacheck.args = {

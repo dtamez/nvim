@@ -12,7 +12,7 @@ require("mason-lspconfig").setup {
         "rust_analyzer",
         "clangd",
         "gopls",
-        "tailwindcss-language-server",
+        "tailwindcss",
         "sqls",
     },
     automatic_installation = false,

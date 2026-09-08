@@ -10,7 +10,8 @@ return {
     },
     {
         "williamboman/mason-lspconfig.nvim",
-        cmd = "Mason",
+        event = "VeryLazy",
+        dependencies = { "mason-org/mason.nvim" },
         config = function()
             require "configs.mason-lspconfig"
         end,

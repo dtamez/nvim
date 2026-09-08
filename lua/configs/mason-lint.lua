@@ -4,6 +4,7 @@ require("mason-nvim-lint").setup {
         "ruff", -- Python
         "djlint", -- Django templates
         "tflint", -- Terraform
+        "yamllint", -- YAML
     },
     automatic_installation = false,
 }
