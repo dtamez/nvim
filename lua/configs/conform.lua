@@ -22,14 +22,14 @@ local options = {
         lua = { "stylua" },
 
         -- Rust
-        rust = { "rustfmt" },
+        -- rust = { "rustfmt" },
 
         -- Go
-        go = { "gofumpt", "goimports-reviser", "golines" },
+        -- go = { "gofumpt", "goimports-reviser", "golines" },
 
         -- C / C++
-        c = { "clang_format" },
-        cpp = { "clang_format" },
+        -- c = { "clang_format" },
+        -- cpp = { "clang_format" },
 
         -- Terraform
         terraform = { "terraform_fmt" },
@@ -74,20 +74,20 @@ local options = {
         },
 
         -- Rust
-        rustfmt = {},
+        -- rustfmt = {},
 
         -- Go
-        golines = { prepend_args = { "--max-len=80" } },
+        -- golines = { prepend_args = { "--max-len=80" } },
 
         -- C / C++
-        ["clang-format"] = {
-            prepend_args = { "-style=file" },
-        },
+        -- ["clang-format"] = {
+        --     prepend_args = { "-style=file" },
+        -- },
 
         -- Other Go formatters
-        gofumpt = {},
-        ["goimports-reviser"] = {},
-        ["terraform_fmt"] = {},
+        -- gofumpt = {},
+        -- ["goimports-reviser"] = {},
+        -- ["terraform_fmt"] = {},
     },
 
     ----------------------------------------------------------------

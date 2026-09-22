@@ -86,7 +86,7 @@ vim.lsp.enable {
     "terraformls",
     "rust_analyzer",
     "clangd",
-    "gopls",
+    -- "gopls",
     "tailwindcss",
     "sqls",
     "jdtls",

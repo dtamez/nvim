@@ -9,11 +9,7 @@ require("mason-lspconfig").setup {
         "vtsls",
         "eslint",
         "terraformls",
-        "rust_analyzer",
-        "clangd",
-        "gopls",
         "tailwindcss",
-        "sqls",
     },
     automatic_installation = false,
 }
