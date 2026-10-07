@@ -23,7 +23,13 @@ return {
         cond = function()
             return vim.g.use_blink
         end,
-        dependencies = { "rafamadriz/friendly-snippets" },
+        dependencies = {
+            "saghen/blink.lib",
+            "rafamadriz/friendly-snippets",
+        },
+        build = function()
+            require("blink.cmp").build():wait()
+        end,
         opts = function()
             return require "configs.blink"
         end,
@@ -83,6 +89,17 @@ return {
         config = function()
             require "configs.mason-conform"
         end,
+    },
+    {
+        "cappyzawa/trim.nvim",
+        opts = {
+            trim_on_write = true,
+            trim_trailing = true,
+            trim_last_line = false,
+            trim_first_line = false,
+            highlight = false,
+            ft_blocklist = { "markdown" },
+        },
     },
 
     -- Treesitter
